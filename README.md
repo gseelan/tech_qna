@@ -24,3 +24,14 @@ function solution(N) {
     }
     return max;
 }
+
+Q2: Odd occurences of a number in an Array of length N.
+
+function solution(A) {
+    var ta= {};
+    var len = A.length;
+    for(var i=0;i<len;i++){
+        ta[A[i]]? delete ta[A[i]] : ta[A[i]] = 1;
+    }
+    return parseInt(Object.keys(ta)[0]);
+}
