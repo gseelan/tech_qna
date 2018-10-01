@@ -35,3 +35,33 @@ function solution(A) {
     }
     return parseInt(Object.keys(ta)[0]);
 }
+
+Q3: Fib with memo
+
+//Outer function
+function fib(num){
+  let res = {}; //To cache
+  let count = 0;
+
+  function f(n){
+    
+    //checking if it is in the cache
+    if(res[n]){
+      return res[n]
+    }
+    
+    count++; //just to count the calls
+    //regular fib. But adding the value to the cache
+    if(n===0||n===1){
+      res[n] = n;
+      return n;
+    }
+    //again regular and adding the cache
+    res[n] = f(n-1)+f(n-2);
+    return res[n];
+  }
+  console.log(f(num),count);
+  return res;
+}
+
+console.log(fib(30))
