@@ -65,3 +65,27 @@ function fib(num){
 }
 
 console.log(fib(30))
+
+
+Q4: Subsets
+
+let list = ["a", "b", "c", "d"];
+
+function helper(item, tempSet) {
+  //we don't want to use the ip param directly. But it will work as well.
+  var newSet = tempSet;
+  var itemsToAdd = tempSet.map(i => i+item);
+  newSet.push(item);
+  newSet = newSet.concat(itemsToAdd);
+  return newSet;
+}
+
+function subSets(list) {
+  var myPowerSet = [];
+  for (var i = 0; i < list.length; i++) {
+    myPowerSet = helper(list[i], myPowerSet);
+  }
+  return myPowerSet;
+}
+
+console.log(subSets(list))
